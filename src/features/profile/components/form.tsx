@@ -19,9 +19,15 @@ const ProfileForm: FC = () => {
   const handleAvatarClick = () => {
     document.getElementById("avatar-upload")?.click();
   };
+
+  /**
+   * Handles the change event when a new avatar image is selected.
+   * 
+   * @param {React.ChangeEvent<HTMLInputElement>} event - The change event object from the file input.
+   * @returns {void}
+  */
   const handleAvatarChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    avatar: string
   ): void => {
     const file = event.target.files?.[0];
     if (file && isValidAvatarFile(file)) {
@@ -55,7 +61,7 @@ const ProfileForm: FC = () => {
             style={{ display: "none" }}
             id="avatar-upload"
             type="file"
-            onChange={(e)=>handleAvatarChange(e, e.target.value)}
+            onChange={(e)=>handleAvatarChange(e)}
         />
         </Box>
         </Box>
